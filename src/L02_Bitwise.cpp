@@ -42,7 +42,13 @@ int turnOnNthBit(unsigned int bitFlags, int n) {
 	return res;
 }
 
-
+int xorNumbers(int numbers[], int size) {
+    int xorOfAll = numbers[0];
+    for (int i = 1; i < size; i++) {
+        xorOfAll = xorOfAll ^ numbers[i];
+    }
+    return xorOfAll;
+}
 
 //
 // Return
