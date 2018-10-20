@@ -43,9 +43,12 @@ namespace spec
         [TestMethod]
         void Test_xorNumbers()
         {
-            Assert::AreEqual(___, xorNumbers({2, 3, 2}, 3), L"xorNumbers({2, 3, 2}, 3) failed", 1, 2);
-            Assert::AreEqual(___, xorNumbers({3, 21, 21, 3, 9}, 5), L"xorNumbers({3, 21, 21, 3, 9}, 5) failed", 1, 2);
-            Assert::AreEqual(___, xorNumbers({5, 5, 5}, 3), L"xorNumbers({5, 5, 5}, 3) failed", 1, 2);
+            int arr3[] = {2, 3, 2};
+            int arrSame3[] = {5, 5, 5};
+            int arr5[] = {3, 21, 21, 3, 9};
+            Assert::AreEqual(___, xorNumbers(arr3, 3), L"xorNumbers({2, 3, 2}, 3) failed", 1, 2);
+            Assert::AreEqual(___, xorNumbers(arr5, 5), L"xorNumbers({3, 21, 21, 3, 9}, 5) failed", 1, 2);
+            Assert::AreEqual(___, xorNumbers(arrSame3, 3), L"xorNumbers({5, 5, 5}, 3) failed", 1, 2);
         };
 	};
 }
