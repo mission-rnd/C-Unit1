@@ -12,7 +12,8 @@ int numberFromBits(int bits[32]);
 
 void bitsFromNumber(int n, int bits[32]);
 
-// number of one's in base 2 number system
 int numberOfOnesInBinary(int n);
+
+int isPalindromeInBase256(int n);
 
 #endif /* E02_Bitwise_h */

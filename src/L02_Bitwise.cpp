@@ -26,7 +26,6 @@ int xorAZero(int a) {
 	return (a ^ 0);
 }
 
-
 int xorABA(int a, int b) {
 	return (a^b^a);
 }
