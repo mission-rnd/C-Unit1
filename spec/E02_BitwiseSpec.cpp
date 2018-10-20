@@ -32,7 +32,7 @@ namespace spec
             }
         };
         
-        [TestMethod]
+        [TestMethod, Timeout(3000)]
         void Test_andOfEachByte()
         {
             Assert::AreEqual(0xFF, andOfEachByte(0xFFFFFFFF), L"andOfEachByte(0XFFFFFFFF) failed", 1, 2);

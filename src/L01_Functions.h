@@ -13,6 +13,7 @@ int tenTimes(int n);
 void tenTimesVector3(int vector[3]);
 int numberOfPrimeFactors(int n);
 void primeFactorsVector(int vector[], int size);
+void numberToString(int n, char arr[12]);
 
 void nTimesMysteryVectorN(int n, int vector[], int size);
 int sigmaNWithMystery(int n);

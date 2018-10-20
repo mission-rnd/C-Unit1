@@ -17,14 +17,23 @@ int midPoint(int x1, int x2) {
     return 0;
 }
 
-
 //
-// sum of two 10 digit numbers
+// sum of most significant digits
 //
-void sumOf10DigitNumbers(int num[10], int num2[10], int sum[11]) {
+int sumOfMSDs(int num1, int num2) {
     
 }
 
+//
+// sum of two 100 digit numbers
+//
+void sumOf100DigitNumbers(int num1[100], int num2[100], int sum[101]) {
+    
+}
 
-
-
+//
+// product of two 100 digit numbers
+//
+void productOf100DigitNumbers(int num1[100], int num2[100], int prod[10000]) {
+    
+}

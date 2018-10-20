@@ -33,7 +33,7 @@ namespace spec
         };
         
         
-        [TestMethod]
+        [TestMethod, Timeout(3000)]
         void Test_midPoint()
         {
             

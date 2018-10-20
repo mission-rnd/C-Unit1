@@ -63,6 +63,32 @@ void primeFactorsVector(int vector[], int size) {
     }
 }
 
+void numberToString(int n, char arr[12]) {
+    
+    if (n == 0) {
+        arr[0] = '0';
+        arr[1] = '\0';
+        return;
+    }
+    
+    int index = 0;
+    if (n < 0 ) {
+        arr[0] = '-';
+        index = 1;
+        n = -n;
+    }
+    
+    int reverse = 0;
+    for (; n > 0; n = n/10) {
+        reverse = reverse + n%10;
+    }
+    
+    for (n = reverse; n > 0; index++) {
+        arr[index] = '0' + n%10;
+        n = n/10;
+    }
+    arr[index] = '\0';
+}
 
 //
 // Mysterious function
