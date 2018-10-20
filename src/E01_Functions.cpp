@@ -13,7 +13,7 @@
 // returns the mid-point of
 // given 2 points on X-axis
 //
-int minPoint(int x1, int x2) {
+int midPoint(int x1, int x2) {
     return 0;
 }
 
