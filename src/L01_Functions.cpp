@@ -14,8 +14,8 @@
 
 */
 
-int gramsPerKg() {
-    return 1000;
+int numberOfPeople() {
+    return 662;
 }
 
 double centimetersPerInch() {

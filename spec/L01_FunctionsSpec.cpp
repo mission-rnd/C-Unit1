@@ -34,9 +34,9 @@ namespace spec
 
 
 		[TestMethod]
-		void Test_gramsPerKg()
+		void Test_numberOfPeople()
 		{
-			Assert::AreEqual(___, gramsPerKg(), L"gramsPerKg() failed", 1, 2);
+			Assert::AreEqual(___, numberOfPeople(), L"numberOfPeople() failed", 1, 2);
 		};
         
         [TestMethod]

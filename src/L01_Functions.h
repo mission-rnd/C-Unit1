@@ -6,7 +6,7 @@
 #ifndef L01_Functions_h
 #define L01_Functions_h
 
-int gramsPerKg();
+int numberOfPeople();
 double centimetersPerInch();
 void swap(int a, int b);
 int tenTimes(int n);
