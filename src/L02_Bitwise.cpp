@@ -73,3 +73,21 @@ int isEven(int n) {
 	}
 	return 1;
 }
+
+
+unsigned int leastSignificantByte(unsigned int n) {
+    return n & 0xFF;
+}
+
+unsigned int mostSignificantByte(unsigned int n) {
+    n = n >> 12;
+    return leastSignificantByte(n);
+}
+
+static void three_things_i_learnt() {
+    /*
+     -
+     -
+     -
+     */
+}

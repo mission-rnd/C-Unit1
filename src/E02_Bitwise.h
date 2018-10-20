@@ -6,5 +6,13 @@
 #ifndef E02_Bitwise_h
 #define E02_Bitwise_h
 
+int andOfEachByte(int n);
+
+int numberFromBits(int bits[32]);
+
+void bitsFromNumber(int n, int bits[32]);
+
+// number of one's in base 2 number system
+int numberOfOnesInBinary(int n);
 
 #endif /* E02_Bitwise_h */

@@ -32,10 +32,6 @@ namespace spec
 			}
 		};
 
-
-		// place holders 
-#define ___ -99  // 3 underscores;  fill in the blank with integer
-
 		[TestMethod]
 		void Test_twoPowerN()
 		{

@@ -33,13 +33,23 @@ namespace spec
 		};
 
 
-// place holders 
-#define ___ -99  // 3 underscores;  fill in the blank with integer
-
 		[TestMethod]
 		void Test_gramsPerKg()
 		{
 			Assert::AreEqual(___, gramsPerKg(), L"gramsPerKg() failed", 1, 2);
 		};
+        
+        [TestMethod]
+        void Test_swap()
+        {
+            int a = 2;
+            int b = 3;
+            swap(a, b);
+            Assert::AreEqual(___, a, L"swap(a, b) failed", 1, 2);
+            Assert::AreEqual(___, b, L"swap(a, b) failed", 1, 2);
+            
+            // does this call work? what happens?
+            swap(2, 4);
+        };
 	};
 }
