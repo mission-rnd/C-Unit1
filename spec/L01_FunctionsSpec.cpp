@@ -106,6 +106,7 @@ namespace spec
 			Assert::AreEqual(___, a[5], L"primeFactorsVector() failed for 182655", 1, 2);
 		};
 
+        // TODO: move to helper method file
 		//do not modify this function.
 		//returns true if strings a,b are same.
 		bool isEqualStrings(char a[], char b[]){
@@ -153,22 +154,15 @@ namespace spec
 			int n = 5;
 			int vector[] = { 32433, 25563, 24313, 5674, 5 };
 			nTimesMysteryVectorN(n, vector, sizeof(vector) / sizeof(vector[0]));
-			Assert::AreEqual(___, vector[0], L"nTimesMysteryVectorN() failed", 1, 2);
-			Assert::AreEqual(___, vector[1], L"nTimesMysteryVectorN() failed", 1, 2);
-			Assert::AreEqual(___, vector[2], L"nTimesMysteryVectorN() failed", 1, 2);
-			Assert::AreEqual(___, vector[3], L"nTimesMysteryVectorN() failed", 1, 2);
-			Assert::AreEqual(___, vector[4], L"nTimesMysteryVectorN() failed", 1, 2);
+            int expectedVector = ______;
+            Assert::AreEqual(true, isArrayEqual(vector, expectedVector, 5), L"nTimesMysteryVectorN() failed", 1, 2);
 		}
 
 		[TestMethod, Timeout(1000)]
 		void Test_tenTimesMysteryVectorN(){
 			int vector[] = { 32433, 25563, 24313, 5674, 5 };
 			tenTimesMysteryVectorN(vector, sizeof(vector) / sizeof(vector[0]));
-			Assert::AreEqual(___, vector[0], L"nTimesMysteryVectorN() failed", 1, 2);
-			Assert::AreEqual(___, vector[1], L"nTimesMysteryVectorN() failed", 1, 2);
-			Assert::AreEqual(___, vector[2], L"nTimesMysteryVectorN() failed", 1, 2);
-			Assert::AreEqual(___, vector[3], L"nTimesMysteryVectorN() failed", 1, 2);
-			Assert::AreEqual(___, vector[4], L"nTimesMysteryVectorN() failed", 1, 2);
-		}
+            int expectedVector = ______;
+            Assert::AreEqual(true, isArrayEqual(vector, expectedVector, 5), L"nTimesMysteryVectorN() failed", 1, 2);
 	};
 }
