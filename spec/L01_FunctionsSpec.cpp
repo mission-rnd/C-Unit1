@@ -108,22 +108,19 @@ namespace spec
 
 		//do not modify this function.
 		//returns true if strings a,b are same.
-		bool streql(char *a, char* b){
-			if (a == "" || b == "")
-				return false;
-			while (*a != '\0' && *b != '\0'){
-				if (*a != *b)
-					return false;
-				a++;
-				b++;
-			}
-			if (*a == '\0' && *b == '\0')
+		bool isEqualStrings(char a[], char b[]){
+            int i;
+            for (i = 0; a[i] != '\0' && b[i] != '\0'; i++) {
+                if (a[i] != b[i]) {
+                    return false;
+                }
+            }
+            if (a[i] == '\0' && b[i] == '\0') {
 				return true;
-			else
-				return false;
+            }
+			
+            return false;
 		}
-
-		char * ____; // do not modify this variable. used as char * placeholder.
 
 		[TestMethod] 
 		[Timeout(1000)]
@@ -131,7 +128,7 @@ namespace spec
 		{
 			char ans[12];
 			numberToString(0,ans);
-			Assert::AreEqual(true,streql(____, ans), L"numberToString() failed", 1, 2);
+			Assert::AreEqual(true,isEqualStrings(____, ans), L"numberToString() failed", 1, 2);
 		}
 
 		[TestMethod, Timeout(1000)]
@@ -139,7 +136,7 @@ namespace spec
 		{
 			char ans[12];
 			numberToString(53, ans);
-			Assert::AreEqual(true, streql(____, ans), L"numberToString() failed", 1, 2);
+			Assert::AreEqual(true, isEqualStrings(____, ans), L"numberToString() failed", 1, 2);
 		}
 
 		[TestMethod] 
@@ -148,7 +145,7 @@ namespace spec
 		{
 			char ans[12];
 			numberToString(-25, ans);
-			Assert::AreEqual(true, streql(____, ans), L"numberToString() failed", 1, 2);
+			Assert::AreEqual(true, isEqualStrings(____, ans), L"numberToString() failed", 1, 2);
 		}
 
 		[TestMethod, Timeout(1000)]

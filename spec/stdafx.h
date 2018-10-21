@@ -6,4 +6,4 @@
 
 // place holders
 #define ___ -99  // 3 underscores;  fill in the blank with integer
-
+#define ____ ""  // 4 underscores; fill in the blank with string
