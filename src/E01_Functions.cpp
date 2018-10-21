@@ -34,6 +34,6 @@ void sumOf100DigitNumbers(int num1[100], int num2[100], int sum[101]) {
 //
 // product of two 100 digit numbers
 //
-void productOf100DigitNumbers(int num1[100], int num2[100], int prod[10000]) {
+void productOf100DigitNumbers(int num1[100], int num2[100], int prod[200]) {
     
 }
