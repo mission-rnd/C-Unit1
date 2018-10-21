@@ -107,6 +107,7 @@ namespace spec
 		};
 
 		//do not modify this function.
+		//returns true if strings a,b are same.
 		bool streql(char *a, char* b){
 			if (a == "" || b == "")
 				return false;
