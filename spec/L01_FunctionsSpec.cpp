@@ -38,7 +38,30 @@ namespace spec
 		{
 			Assert::AreEqual(___, numberOfPeople(), L"numberOfPeople() failed", 1, 2);
 		};
+
+		[TestMethod]
+		void Test_centimetersPerInch()
+		{
+			Assert::AreEqual(___, centimetersPerInch(), L"centimetersPerInch() failed", 1, 2);
+		};
         
+		[TestMethod]
+		void Test_tenTimes()
+		{
+			int a = 100;
+			Assert::AreEqual(___, tenTimes(a), L"tentimes(a) failed", 1, 2);
+		};
+
+		[TestMethod]
+		void Test_tenTimesVector3()
+		{
+			int a[3] = {5, 6, 7};
+			tenTimesVector3(a);
+			Assert::AreEqual(___, a[0], L"tenTimesVector3(a) failed", 1, 2);
+			Assert::AreEqual(___, a[1], L"tenTimesVector3(a) failed", 1, 2);
+			Assert::AreEqual(___, a[2], L"tenTimesVector3(a) failed", 1, 2);
+		};
+
         [TestMethod]
         void Test_swap()
         {
@@ -51,5 +74,110 @@ namespace spec
             // does this call work? what happens?
             swap(2, 4);
         };
+
+		[TestMethod] 
+		[Timeout(1000)]
+		void Test_numberOfPrimeFactorsSimple()
+		{
+			Assert::AreEqual(___, numberOfPrimeFactors(10), L"numberOfPrimeFactors(a) failed",1,2);
+		};
+
+		[TestMethod] 
+		[Timeout(1000)]
+		void Test_numberOfPrimeFactorsMedium()
+		{
+			Assert::AreEqual(___, numberOfPrimeFactors(23532), L"numberOfPrimeFactors(a) failed", 1, 2);
+		};
+
+		[TestMethod] 
+		[Timeout(1000)]
+		void Test_numberOfPrimeFactorsLarge()
+		{
+			Assert::AreEqual(___, numberOfPrimeFactors(45325420), L"numberOfPrimeFactors(a) failed", 1, 2);
+		};
+
+		[TestMethod] 
+		[Timeout(1000)]
+		void Test_numberOfPrimeFactorsVector()
+		{
+			int a[] = { 907288, 978782, 381860, 721573, 56498, 182655 };
+			primeFactorsVector(a, sizeof(a) / sizeof(a[0]));
+			Assert::AreEqual(___, a[0], L"primeFactorsVector() failed for 907288", 1, 2);
+			Assert::AreEqual(___, a[1], L"primeFactorsVector() failed for 978782", 1, 2);
+			Assert::AreEqual(___, a[2], L"primeFactorsVector() failed for 381860", 1, 2);
+			Assert::AreEqual(___, a[3], L"primeFactorsVector() failed for 721573", 1, 2);
+			Assert::AreEqual(___, a[4], L"primeFactorsVector() failed for 56498", 1, 2);
+			Assert::AreEqual(___, a[5], L"primeFactorsVector() failed for 182655", 1, 2);
+		};
+
+		//do not modify this function.
+		bool streql(char *a, char* b){
+			if (a == "" || b == "")
+				return false;
+			while (*a != '\0' && *b != '\0'){
+				if (*a != *b)
+					return false;
+				a++;
+				b++;
+			}
+			if (*a == '\0' && *b == '\0')
+				return true;
+			else
+				return false;
+		}
+
+		char * ____; // do not modify this variable. used as char * placeholder.
+
+		[TestMethod] 
+		[Timeout(1000)]
+		void Test_numberToStringZero()
+		{
+			char ans[12];
+			numberToString(0,ans);
+			Assert::AreEqual(true,streql(____, ans), L"numberToString() failed", 1, 2);
+		}
+
+		[TestMethod] 
+		[Timeout(1000)]
+		void Test_numberToStringPositive()
+		{
+			char ans[12];
+			numberToString(53, ans);
+			Assert::AreEqual(true, streql(____, ans), L"numberToString() failed", 1, 2);
+		}
+
+		[TestMethod] 
+		[Timeout(1000)]
+		void Test_numberToStringNegative()
+		{
+			char ans[12];
+			numberToString(-25, ans);
+			Assert::AreEqual(true, streql(____, ans), L"numberToString() failed", 1, 2);
+		}
+
+		[TestMethod] 
+		[Timeout(1000)]
+		void Test_nTimesMysteryVectorN(){
+			int n = 5;
+			int vector[] = { 32433, 25563, 24313, 5674, 5 };
+			nTimesMysteryVectorN(n, vector, sizeof(vector) / sizeof(vector[0]));
+			Assert::AreEqual(___, vector[0], L"nTimesMysteryVectorN() failed", 1, 2);
+			Assert::AreEqual(___, vector[1], L"nTimesMysteryVectorN() failed", 1, 2);
+			Assert::AreEqual(___, vector[2], L"nTimesMysteryVectorN() failed", 1, 2);
+			Assert::AreEqual(___, vector[3], L"nTimesMysteryVectorN() failed", 1, 2);
+			Assert::AreEqual(___, vector[4], L"nTimesMysteryVectorN() failed", 1, 2);
+		}
+
+		[TestMethod]
+		[Timeout(1000)]
+		void Test_tenTimesMysteryVectorN(){
+			int vector[] = { 32433, 25563, 24313, 5674, 5 };
+			tenTimesMysteryVectorN(vector, sizeof(vector) / sizeof(vector[0]));
+			Assert::AreEqual(___, vector[0], L"nTimesMysteryVectorN() failed", 1, 2);
+			Assert::AreEqual(___, vector[1], L"nTimesMysteryVectorN() failed", 1, 2);
+			Assert::AreEqual(___, vector[2], L"nTimesMysteryVectorN() failed", 1, 2);
+			Assert::AreEqual(___, vector[3], L"nTimesMysteryVectorN() failed", 1, 2);
+			Assert::AreEqual(___, vector[4], L"nTimesMysteryVectorN() failed", 1, 2);
+		}
 	};
 }
