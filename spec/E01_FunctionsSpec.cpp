@@ -32,22 +32,17 @@ namespace spec
             }
         };
         
-        
+        //
+        // midPoint Test cases
+        //
         [TestMethod, Timeout(1000)]
         void Test_midPointBasic()
         {
             
             Assert::AreEqual(3, midPoint(2, 4), L"midPoint(2, 4) failed", 1, 2);
             
-			// 0x8FFFFFFF is 2415919103 ==> overflows 32bit signed integer.
-            //Assert::AreEqual(0x8FFFFFFF, midPoint(0x8FFFFFFF, 0x8FFFFFFF), L"midPoint(0x8FFFFFFF, 0x8FFFFFFF) failed", 1, 2);
+			Assert::AreEqual(0x7FFFFFFE, midPoint(0x7FFFFFFD, 0x8FFFFFFF), L"midPoint(0x8FFFFFFF, 0x8FFFFFFF) failed", 1, 2);
         };
-
-		[TestMethod, Timeout(1000)]
-		void Test_midPointBasic2()
-		{
-			Assert::AreEqual(350, midPoint(500, 200), L"midPoint(500, 200) failed", 1, 2);
-		};
 
 		[TestMethod, Timeout(1000)]
 		void Test_midPointZero()
@@ -73,6 +68,9 @@ namespace spec
 			Assert::AreEqual(0x28af3d, midPoint(0x18769, 0x4fd711), L"midPoint(0x18769, 0x4fd711) failed", 1, 2);
 		};
 
+        //
+        // sumOfMSDs test cases
+        //
 		[TestMethod, Timeout(1000)]
 		void Test_sumOfMSDsBasic()
 		{
@@ -115,7 +113,8 @@ namespace spec
 		};
 
 
-		bool arrayEqual(int *a, int *b,int size){
+        // helper method
+		bool isArrayEqual(int a[], int b[], int size){
 			for (int i = 0; i < size; i++){
 				if (a[i] != b[i])
 					return false;
@@ -123,6 +122,9 @@ namespace spec
 			return true;
 		}
 
+        //
+        // sumOf100DigitNumbers test cases
+        //
 		[TestMethod, Timeout(1000)]
 		void Test_sumOf100DigitNumbers1()
 		{
@@ -131,7 +133,7 @@ namespace spec
 			int ans[101] = { 0, 9, 4, 8, 7, 3, 7, 9, 8, 0, 3, 9, 0, 1, 6, 2, 8, 3, 4, 2, 0, 8, 1, 6, 3, 5, 6, 4, 1, 4, 3, 4, 1, 7, 2, 4, 8, 2, 9, 1, 7, 8, 0, 6, 8, 6, 5, 0, 4, 1, 7, 4, 3, 7, 1, 4, 4, 1, 1, 0, 6, 8, 5, 2, 9, 6, 5, 4, 6, 3, 6, 3, 1, 1, 0, 0, 6, 7, 8, 5, 4, 5, 8, 5, 2, 1, 3, 0, 7, 9, 6, 4, 7, 0, 9, 4, 3, 7, 4, 0, 0 };
 			int c[101];
 			sumOf100DigitNumbers(a, b, c);
-			Assert::AreEqual(true, arrayEqual(ans, c, 101), L"sumOf100DigitNumbers() failed", 1, 2);
+			Assert::AreEqual(true, isArrayEqual(ans, c, 101), L"sumOf100DigitNumbers() failed", 1, 2);
 		};
 
 		[TestMethod, Timeout(1000)]
@@ -142,7 +144,7 @@ namespace spec
 			int ans[101] = { 1, 0, 9, 7, 9, 3, 1, 4, 3, 1, 3, 1, 8, 2, 8, 9, 0, 2, 6, 7, 3, 3, 3, 3, 2, 2, 5, 9, 6, 0, 7, 2, 3, 7, 5, 4, 4, 5, 7, 6, 9, 8, 5, 3, 6, 2, 3, 9, 3, 3, 1, 5, 7, 8, 1, 2, 3, 1, 2, 8, 8, 9, 9, 6, 7, 9, 4, 8, 3, 3, 0, 1, 1, 2, 3, 5, 1, 6, 5, 4, 7, 8, 8, 6, 0, 3, 4, 0, 7, 9, 9, 6, 2, 7, 7, 9, 0, 8, 3, 8, 9 };
 			int c[101];
 			sumOf100DigitNumbers(a, b, c);
-			Assert::AreEqual(true, arrayEqual(ans, c, 101), L"sumOf100DigitNumbers() failed", 1, 2);
+			Assert::AreEqual(true, isArrayEqual(ans, c, 101), L"sumOf100DigitNumbers() failed", 1, 2);
 		};
 
 		[TestMethod, Timeout(1000)]
@@ -153,20 +155,35 @@ namespace spec
 			int c[101];
 			int ans[101] = { 0, 6, 8, 3, 7, 8, 1, 2, 4, 6, 7, 2, 0, 6, 6, 7, 0, 0, 9, 4, 8, 2, 9, 6, 3, 1, 7, 2, 3, 0, 4, 4, 5, 0, 9, 7, 0, 8, 9, 2, 6, 9, 2, 8, 8, 0, 2, 8, 2, 6, 5, 3, 0, 5, 2, 2, 5, 8, 8, 6, 6, 2, 3, 6, 0, 7, 0, 9, 9, 0, 4, 6, 4, 0, 4, 5, 1, 9, 5, 1, 5, 3, 6, 6, 3, 2, 4, 0, 7, 7, 8, 4, 6, 8, 7, 8, 9, 1, 6, 9, 2 };
 			sumOf100DigitNumbers(a, b, c);
-			Assert::AreEqual(true, arrayEqual(ans, c, 101), L"sumOf100DigitNumbers() failed", 1, 2);
+			Assert::AreEqual(true, isArrayEqual(ans, c, 101), L"sumOf100DigitNumbers() failed", 1, 2);
 		};
 
 		[TestMethod, Timeout(1000)]
 		void Test_sumOf100DigitNumbers4()
 		{
 			int a[100] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-			int b[100] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+			int b[100] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 			int c[101];
 			int ans[101] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 			sumOf100DigitNumbers(a, b, c);
-			Assert::AreEqual(true, arrayEqual(ans, c, 101), L"sumOf100DigitNumbers() failed", 1, 2);
+			Assert::AreEqual(true, isArrayEqual(ans, c, 101), L"sumOf100DigitNumbers() failed", 1, 2);
 		};
 
+        [TestMethod, Timeout(1000)]
+        void Test_sumOf100DigitNumbers5()
+        {
+            int a[100] = { 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9 };
+            int b[100] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 };
+            int c[101];
+            int ans[101] = { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            sumOf100DigitNumbers(a, b, c);
+            Assert::AreEqual(true, isArrayEqual(ans, c, 101), L"sumOf100DigitNumbers() failed", 1, 2);
+        };
+        
+        
+        //
+        // productOf100DigitNumbers test cases
+        //
 		[TestMethod, Timeout(1000)]
 		void Test_productOf100DigitNumbers1()
 		{
@@ -175,7 +192,7 @@ namespace spec
 			int c[200];
 			int ans[200] = { 1, 2, 6, 9, 9, 1, 1, 9, 8, 3, 8, 7, 7, 1, 7, 5, 8, 1, 9, 9, 9, 9, 3, 5, 6, 8, 6, 1, 9, 2, 1, 1, 8, 6, 8, 4, 4, 2, 3, 5, 7, 5, 1, 2, 9, 5, 6, 6, 3, 4, 8, 6, 3, 3, 8, 6, 3, 0, 5, 4, 6, 7, 3, 7, 7, 0, 0, 9, 6, 0, 6, 4, 8, 0, 5, 9, 4, 1, 4, 8, 0, 0, 6, 5, 9, 1, 1, 5, 4, 6, 0, 0, 7, 1, 8, 1, 4, 8, 1, 6, 0, 3, 4, 2, 2, 1, 4, 6, 2, 5, 9, 4, 9, 6, 8, 7, 1, 7, 6, 2, 0, 6, 2, 9, 5, 3, 4, 7, 3, 3, 6, 3, 2, 8, 0, 4, 1, 2, 5, 4, 6, 7, 3, 5, 0, 4, 4, 9, 6, 0, 1, 2, 1, 2, 8, 5, 2, 1, 5, 5, 4, 9, 9, 8, 3, 5, 6, 9, 8, 3, 0, 5, 2, 9, 7, 1, 4, 2, 9, 1, 5, 1, 1, 4, 7, 1, 5, 8, 5, 6, 0, 0, 9, 2, 0, 7, 5, 5, 0, 4 };
 			productOf100DigitNumbers(a, b, c);
-			Assert::AreEqual(true, arrayEqual(ans, c, 200), L"productOf100DigitNumbers() failed", 1, 2);
+			Assert::AreEqual(true, isArrayEqual(ans, c, 200), L"productOf100DigitNumbers() failed", 1, 2);
 		};
 
 		[TestMethod, Timeout(1000)]
@@ -186,7 +203,7 @@ namespace spec
 			int c[200];
 			int ans[200] = { 0, 8, 0, 1, 3, 0, 9, 1, 5, 6, 6, 7, 8, 0, 6, 5, 0, 6, 6, 6, 2, 6, 4, 2, 1, 9, 1, 0, 1, 1, 7, 6, 9, 3, 2, 0, 4, 9, 3, 1, 2, 6, 1, 8, 7, 8, 1, 4, 9, 2, 1, 5, 4, 8, 8, 0, 8, 1, 3, 7, 0, 5, 9, 5, 5, 3, 3, 6, 0, 6, 3, 7, 5, 3, 9, 3, 6, 0, 7, 5, 8, 4, 0, 1, 3, 7, 0, 2, 1, 7, 2, 6, 0, 5, 7, 3, 2, 8, 7, 8, 9, 8, 4, 4, 6, 7, 1, 2, 9, 1, 1, 9, 8, 1, 4, 1, 4, 0, 3, 8, 8, 5, 7, 0, 2, 9, 8, 6, 3, 8, 5, 4, 3, 0, 5, 0, 8, 7, 2, 4, 1, 1, 4, 6, 3, 9, 2, 9, 8, 8, 7, 7, 6, 5, 9, 9, 1, 3, 1, 6, 8, 0, 7, 1, 9, 2, 0, 5, 6, 3, 2, 2, 6, 3, 3, 5, 4, 2, 6, 5, 0, 2, 9, 5, 0, 2, 4, 0, 4, 0, 1, 6, 0, 3, 5, 3, 7, 6, 4, 8 };
 			productOf100DigitNumbers(a, b, c);
-			Assert::AreEqual(true, arrayEqual(ans, c, 200), L"productOf100DigitNumbers() failed", 1, 2);
+			Assert::AreEqual(true, isArrayEqual(ans, c, 200), L"productOf100DigitNumbers() failed", 1, 2);
 		};
 
 		[TestMethod, Timeout(1000)]
@@ -197,7 +214,7 @@ namespace spec
 			int c[200];
 			int ans[200] = { 8, 1, 4, 9, 9, 7, 2, 3, 4, 8, 1, 6, 0, 4, 0, 1, 9, 9, 8, 4, 4, 8, 2, 5, 4, 9, 5, 0, 0, 2, 1, 6, 4, 0, 3, 5, 9, 1, 7, 6, 3, 9, 7, 5, 9, 4, 6, 4, 7, 5, 8, 0, 9, 3, 1, 2, 1, 1, 6, 6, 7, 9, 9, 1, 0, 8, 1, 7, 3, 8, 3, 5, 5, 3, 2, 8, 7, 3, 6, 2, 3, 2, 8, 1, 0, 4, 4, 8, 3, 7, 8, 3, 3, 2, 5, 2, 4, 7, 4, 2, 1, 9, 2, 0, 3, 7, 1, 4, 9, 1, 1, 3, 9, 6, 7, 9, 1, 6, 7, 2, 5, 5, 2, 3, 0, 9, 4, 7, 0, 6, 6, 3, 3, 7, 8, 4, 6, 2, 1, 6, 1, 9, 7, 0, 4, 8, 5, 0, 8, 5, 7, 2, 7, 1, 5, 1, 7, 8, 7, 5, 0, 7, 0, 1, 9, 1, 6, 7, 4, 2, 1, 7, 1, 5, 1, 7, 3, 3, 7, 7, 1, 9, 0, 6, 0, 5, 9, 7, 6, 9, 9, 7, 2, 4, 2, 8, 6, 8, 7, 6 };
 			productOf100DigitNumbers(a, b, c);
-			Assert::AreEqual(true, arrayEqual(ans, c, 200), L"productOf100DigitNumbers() failed", 1, 2);
+			Assert::AreEqual(true, isArrayEqual(ans, c, 200), L"productOf100DigitNumbers() failed", 1, 2);
 		};
 
 		[TestMethod, Timeout(1000)]
@@ -208,7 +225,7 @@ namespace spec
 			int c[200];
 			int ans[200] = { 2, 8, 4, 4, 4, 8, 3, 1, 9, 4, 6, 6, 9, 4, 7, 1, 1, 5, 0, 0, 5, 4, 9, 2, 2, 7, 3, 8, 0, 4, 9, 1, 5, 9, 0, 6, 0, 6, 9, 4, 8, 9, 9, 8, 2, 9, 7, 5, 0, 6, 7, 0, 2, 6, 5, 7, 7, 3, 6, 9, 3, 0, 1, 5, 5, 4, 6, 8, 9, 4, 2, 2, 1, 2, 9, 4, 6, 9, 8, 4, 6, 6, 5, 9, 9, 0, 5, 2, 4, 4, 2, 1, 6, 1, 5, 1, 0, 8, 7, 7, 3, 4, 4, 4, 4, 1, 1, 5, 5, 4, 2, 6, 4, 9, 8, 8, 7, 6, 1, 6, 1, 7, 8, 8, 8, 6, 1, 2, 6, 3, 8, 9, 8, 5, 2, 9, 6, 6, 8, 6, 7, 6, 8, 0, 7, 4, 2, 5, 8, 9, 7, 8, 4, 8, 8, 6, 5, 3, 5, 8, 1, 7, 7, 5, 5, 0, 1, 0, 0, 8, 4, 0, 4, 6, 3, 6, 2, 2, 2, 0, 7, 4, 5, 6, 3, 3, 7, 4, 2, 4, 9, 2, 0, 3, 8, 3, 0, 5, 0, 4 };
 			productOf100DigitNumbers(a, b, c);
-			Assert::AreEqual(true, arrayEqual(ans, c, 200), L"productOf100DigitNumbers() failed", 1, 2);
+			Assert::AreEqual(true, isArrayEqual(ans, c, 200), L"productOf100DigitNumbers() failed", 1, 2);
 		};
     };
 }
