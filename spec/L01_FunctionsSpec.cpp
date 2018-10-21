@@ -75,29 +75,25 @@ namespace spec
             swap(2, 4);
         };
 
-		[TestMethod] 
-		[Timeout(1000)]
+		[TestMethod, Timeout(1000)]
 		void Test_numberOfPrimeFactorsSimple()
 		{
 			Assert::AreEqual(___, numberOfPrimeFactors(10), L"numberOfPrimeFactors(a) failed",1,2);
 		};
 
-		[TestMethod] 
-		[Timeout(1000)]
+		[TestMethod, Timeout(1000)]
 		void Test_numberOfPrimeFactorsMedium()
 		{
 			Assert::AreEqual(___, numberOfPrimeFactors(23532), L"numberOfPrimeFactors(a) failed", 1, 2);
 		};
 
-		[TestMethod] 
-		[Timeout(1000)]
+		[TestMethod, Timeout(1000)]
 		void Test_numberOfPrimeFactorsLarge()
 		{
 			Assert::AreEqual(___, numberOfPrimeFactors(45325420), L"numberOfPrimeFactors(a) failed", 1, 2);
 		};
 
-		[TestMethod] 
-		[Timeout(1000)]
+		[TestMethod, Timeout(1000)]
 		void Test_numberOfPrimeFactorsVector()
 		{
 			int a[] = { 907288, 978782, 381860, 721573, 56498, 182655 };
@@ -137,8 +133,7 @@ namespace spec
 			Assert::AreEqual(true,streql(____, ans), L"numberToString() failed", 1, 2);
 		}
 
-		[TestMethod] 
-		[Timeout(1000)]
+		[TestMethod, Timeout(1000)]
 		void Test_numberToStringPositive()
 		{
 			char ans[12];
@@ -155,8 +150,7 @@ namespace spec
 			Assert::AreEqual(true, streql(____, ans), L"numberToString() failed", 1, 2);
 		}
 
-		[TestMethod] 
-		[Timeout(1000)]
+		[TestMethod, Timeout(1000)]
 		void Test_nTimesMysteryVectorN(){
 			int n = 5;
 			int vector[] = { 32433, 25563, 24313, 5674, 5 };
@@ -168,8 +162,7 @@ namespace spec
 			Assert::AreEqual(___, vector[4], L"nTimesMysteryVectorN() failed", 1, 2);
 		}
 
-		[TestMethod]
-		[Timeout(1000)]
+		[TestMethod, Timeout(1000)]
 		void Test_tenTimesMysteryVectorN(){
 			int vector[] = { 32433, 25563, 24313, 5674, 5 };
 			tenTimesMysteryVectorN(vector, sizeof(vector) / sizeof(vector[0]));
