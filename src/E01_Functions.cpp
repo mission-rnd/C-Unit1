@@ -18,7 +18,7 @@ int midPoint(int x1, int x2) {
 }
 
 //
-// sum of most significant digits
+// sum of most significant digits of non-negative integers.
 //
 int sumOfMSDs(int num1, int num2) {
     return 0;

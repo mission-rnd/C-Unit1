@@ -93,36 +93,7 @@ namespace spec
 			Assert::AreEqual(___, numberOfPrimeFactors(45325420), L"numberOfPrimeFactors(a) failed", 1, 2);
 		};
 
-		[TestMethod, Timeout(1000)]
-		void Test_numberOfPrimeFactorsVector()
-		{
-			int a[] = { 907288, 978782, 381860, 721573, 56498, 182655 };
-			primeFactorsVector(a, sizeof(a) / sizeof(a[0]));
-			Assert::AreEqual(___, a[0], L"primeFactorsVector() failed for 907288", 1, 2);
-			Assert::AreEqual(___, a[1], L"primeFactorsVector() failed for 978782", 1, 2);
-			Assert::AreEqual(___, a[2], L"primeFactorsVector() failed for 381860", 1, 2);
-			Assert::AreEqual(___, a[3], L"primeFactorsVector() failed for 721573", 1, 2);
-			Assert::AreEqual(___, a[4], L"primeFactorsVector() failed for 56498", 1, 2);
-			Assert::AreEqual(___, a[5], L"primeFactorsVector() failed for 182655", 1, 2);
-		};
-
         // TODO: move to helper method file
-		//do not modify this function.
-		//returns true if strings a,b are same.
-		bool isEqualStrings(char a[], char b[]){
-            int i;
-            for (i = 0; a[i] != '\0' && b[i] != '\0'; i++) {
-                if (a[i] != b[i]) {
-                    return false;
-                }
-            }
-            if (a[i] == '\0' && b[i] == '\0') {
-				return true;
-            }
-			
-            return false;
-		}
-        
         // helper method
         static bool isArrayEqual(int a[], int b[], int size){
             for (int i = 0; i < size; i++){
@@ -132,6 +103,31 @@ namespace spec
             return true;
         }
 
+        
+        //do not modify this function.
+        //returns true if strings a,b are same.
+        bool isEqualStrings(char a[], char b[]){
+            int i;
+            for (i = 0; a[i] != '\0' && b[i] != '\0'; i++) {
+                if (a[i] != b[i]) {
+                    return false;
+                }
+            }
+            if (a[i] == '\0' && b[i] == '\0') {
+                return true;
+            }
+            
+            return false;
+        }
+        
+		[TestMethod, Timeout(1000)]
+		void Test_numberOfPrimeFactorsVector()
+		{
+			int a[] = { 907288, 978782, 381860, 721573, 56498, 182655 };
+            int expectedA[] = ______;
+			primeFactorsVector(a, sizeof(a) / sizeof(a[0]));
+            Assert::AreEqual(true, isArrayEqual(vector, expectedVector, 6), L"primeFactorsVector() failed", 1, 2);
+		};
 
 		[TestMethod] 
 		[Timeout(1000)]

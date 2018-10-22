@@ -14,6 +14,6 @@ void bitsFromNumber(int n, int bits[32]);
 
 int numberOfOnesInBinary(int n);
 
-int isPalindromeInBase256(int n);
+int isPalindromeInBase256(unsigned long int n);
 
 #endif /* E02_Bitwise_h */

@@ -36,37 +36,11 @@ namespace spec
         // midPoint Test cases
         //
         [TestMethod, Timeout(1000)]
-        void Test_midPointBasic()
+        void Test_midPoint()
         {
-            
             Assert::AreEqual(3, midPoint(2, 4), L"midPoint(2, 4) failed", 1, 2);
-            
-			Assert::AreEqual(0x7FFFFFFE, midPoint(0x7FFFFFFD, 0x8FFFFFFF), L"midPoint(0x8FFFFFFF, 0x8FFFFFFF) failed", 1, 2);
+			Assert::AreEqual(0x7FFFFFFE, midPoint(0x7FFFFFFD, 0x8FFFFFFF), L"midPoint(0x7FFFFFFD, 0x7FFFFFFF) failed", 1, 2);
         };
-
-		[TestMethod, Timeout(1000)]
-		void Test_midPointZero()
-		{
-			Assert::AreEqual(0, midPoint(0, 0), L"midPoint(0, 0) failed", 1, 2);
-		};
-
-		[TestMethod, Timeout(1000)]
-		void Test_midPointNegative1()
-		{
-			Assert::AreEqual(-100, midPoint(-300, 100), L"midPoint(-300, 100) failed", 1, 2);
-		};
-
-		[TestMethod, Timeout(1000)]
-		void Test_midPointNegative2()
-		{
-			Assert::AreEqual(194450, midPoint(-45400, 434300), L"midPoint(-45400, 434300) failed", 1, 2);
-		};
-
-		[TestMethod, Timeout(1000)]
-		void Test_midPointMedium()
-		{
-			Assert::AreEqual(0x28af3d, midPoint(0x18769, 0x4fd711), L"midPoint(0x18769, 0x4fd711) failed", 1, 2);
-		};
 
         //
         // sumOfMSDs test cases
@@ -74,44 +48,14 @@ namespace spec
 		[TestMethod, Timeout(1000)]
 		void Test_sumOfMSDsBasic()
 		{
-			Assert::AreEqual(6, sumOfMSDs(0x18769, 0x4fd711), L"sumOfMSDs(0x18769, 0x4fd711) failed", 1, 2);
+            Assert::AreEqual(3, sumOfMSDs(1, 2), L"sumOfMSDs(1, 2) failed", 1, 2);
+			Assert::AreEqual(6, sumOfMSDs(48, 23), L"sumOfMSDs(48, 23) failed", 1, 2);
+            Assert::AreEqual(8, sumOfMSDs(353, 56563), L"sumOfMSDs(353, 56563) failed", 1, 2);
+            Assert::AreEqual(0, sumOfMSDs(0, 0), L"sumOfMSDs(0, 0) failed", 1, 2);
+            Assert::AreEqual(5, sumOfMSDs(0, 5656), L"sumOfMSDs(0, 5656) failed", 1, 2);
+            Assert::AreEqual(6, sumOfMSDs(6756, 0), L"sumOfMSDs(6756, 0) failed", 1, 2);
+            Assert::AreEqual(4, sumOfMSDs(2147483647, 2147483647), L"sumOfMSDs(2147483647, 2147483647) failed", 1, 2);
 		};
-
-		[TestMethod, Timeout(1000)]
-		void Test_sumOfMSDsPositive()
-		{
-			Assert::AreEqual(8, sumOfMSDs(3534432, 5656345), L"sumOfMSDs(3534432, 5656345) failed", 1, 2);
-		};
-
-		[TestMethod, Timeout(1000)]
-		void Test_sumOfMSDsSimple()
-		{
-			Assert::AreEqual(3, sumOfMSDs(1, 2), L"sumOfMSDs(1, 2) failed", 1, 2);
-		};
-
-		[TestMethod, Timeout(1000)]
-		void Test_sumOfMSDsZero()
-		{
-			Assert::AreEqual(5, sumOfMSDs(0, 5656345), L"sumOfMSDs(0, 5656345) failed", 1, 2);
-			Assert::AreEqual(0, sumOfMSDs(0, 0), L"sumOfMSDs(0, 0) failed", 1, 2);
-			Assert::AreEqual(6, sumOfMSDs(67556, 0), L"sumOfMSDs(67556, 0) failed", 1, 2);
-		};
-
-		[TestMethod, Timeout(1000)]
-		void Test_sumOfMSDsNegative()
-		{
-			Assert::AreEqual(3, sumOfMSDs(-1, 2), L"sumOfMSDs(-1, 2) failed", 1, 2);
-			Assert::AreEqual(8, sumOfMSDs(3534432, -5656345), L"sumOfMSDs(3534432, -5656345) failed", 1, 2);
-			Assert::AreEqual(7, sumOfMSDs(-2535342, -564545), L"sumOfMSDs(-2535342, -564545) failed", 1, 2);
-		};
-
-		[TestMethod, Timeout(1000)]
-		void Test_sumOfMSDsOverFlow()
-		{
-			Assert::AreEqual(4, sumOfMSDs(2147483647, 2147483647), L"sumOfMSDs(2147483647, 2147483647) failed", 1, 2);
-			Assert::AreEqual(4, sumOfMSDs(-2147483647, -2147483647), L"sumOfMSDs(-2147483647, -2147483647) failed", 1, 2);
-		};
-
 
         // helper method
 		static bool isArrayEqual(int a[], int b[], int size){
@@ -184,7 +128,7 @@ namespace spec
         //
         // productOf100DigitNumbers test cases
         //
-		[TestMethod, Timeout(1000)]
+		[TestMethod, Timeout(3000)]
 		void Test_productOf100DigitNumbers1()
 		{
 			int a[100] = { 9, 9, 8, 7, 3, 7, 6, 3, 0, 9, 6, 8, 2, 9, 1, 7, 8, 9, 1, 8, 1, 5, 8, 3, 4, 7, 7, 2, 2, 7, 0, 4, 7, 0, 8, 5, 3, 4, 1, 5, 5, 2, 9, 3, 2, 9, 1, 8, 4, 1, 6, 9, 8, 6, 2, 9, 3, 6, 9, 8, 2, 2, 6, 7, 7, 3, 2, 8, 0, 7, 7, 0, 9, 9, 9, 5, 0, 0, 2, 5, 4, 6, 1, 9, 8, 0, 5, 9, 4, 5, 6, 7, 7, 5, 3, 0, 0, 9, 7, 4 };
@@ -195,7 +139,7 @@ namespace spec
 			Assert::AreEqual(true, isArrayEqual(ans, c, 200), L"productOf100DigitNumbers() failed", 1, 2);
 		};
 
-		[TestMethod, Timeout(1000)]
+		[TestMethod, Timeout(3000)]
 		void Test_productOf100DigitNumbers2()
 		{
 			int a[100] = { 5, 0, 7, 2, 5, 9, 6, 5, 8, 4, 5, 5, 3, 1, 4, 7, 8, 5, 9, 8, 9, 1, 7, 0, 3, 1, 5, 2, 0, 9, 2, 1, 1, 0, 3, 9, 8, 0, 3, 7, 8, 5, 5, 9, 7, 4, 0, 5, 7, 2, 1, 2, 9, 8, 8, 2, 3, 3, 7, 9, 8, 2, 0, 5, 7, 4, 9, 6, 4, 8, 1, 3, 2, 4, 7, 3, 4, 5, 4, 0, 0, 4, 1, 6, 4, 7, 5, 4, 8, 8, 5, 1, 8, 9, 3, 4, 8, 1, 1, 2 };
@@ -206,7 +150,7 @@ namespace spec
 			Assert::AreEqual(true, isArrayEqual(ans, c, 200), L"productOf100DigitNumbers() failed", 1, 2);
 		};
 
-		[TestMethod, Timeout(1000)]
+		[TestMethod, Timeout(3000)]
 		void Test_productOf100DigitNumbers3()
 		{
 			int a[100] = { 8, 7, 2, 1, 2, 9, 2, 8, 5, 4, 2, 9, 6, 0, 1, 5, 2, 3, 1, 5, 4, 6, 6, 5, 9, 8, 9, 4, 5, 6, 4, 1, 5, 8, 0, 2, 5, 0, 7, 3, 4, 3, 3, 0, 7, 5, 7, 2, 5, 1, 6, 0, 8, 0, 4, 8, 7, 8, 8, 6, 7, 5, 3, 9, 6, 0, 3, 6, 7, 0, 1, 3, 3, 4, 8, 4, 5, 9, 5, 7, 0, 0, 9, 9, 2, 4, 0, 8, 5, 6, 3, 5, 9, 2, 1, 6, 5, 3, 5, 4 };
@@ -217,7 +161,7 @@ namespace spec
 			Assert::AreEqual(true, isArrayEqual(ans, c, 200), L"productOf100DigitNumbers() failed", 1, 2);
 		};
 
-		[TestMethod, Timeout(1000)]
+		[TestMethod, Timeout(3000)]
 		void Test_productOf100DigitNumbers4()
 		{
 			int a[100] = { 5, 1, 1, 2, 5, 3, 2, 2, 6, 8, 1, 1, 3, 6, 0, 2, 9, 1, 1, 0, 7, 1, 8, 1, 0, 5, 4, 4, 0, 1, 7, 3, 7, 8, 7, 2, 2, 0, 0, 0, 4, 6, 0, 1, 2, 2, 1, 6, 4, 0, 2, 3, 5, 4, 2, 7, 2, 0, 0, 0, 0, 5, 4, 2, 4, 3, 0, 1, 6, 7, 6, 3, 3, 4, 7, 6, 1, 6, 1, 0, 1, 7, 9, 8, 8, 6, 3, 5, 9, 6, 8, 0, 1, 5, 2, 1, 4, 3, 8, 6 };
