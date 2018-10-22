@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
 #include "../src/E02_Bitwise.cpp"
+#include "TestHelperMethods.h"
 
 using namespace System;
 using namespace System::Text;
@@ -98,17 +99,6 @@ namespace spec
 			int bits[32] = { 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1 };
 			Assert::AreEqual(367824795, numberFromBits(bits), L"numberFromBits() failed", 1, 2);
 		}
-        //TODO: add negative numbers test
-        
-
-        // helper function ; TODO: move to common place
-		bool checkBits(int ans, int bits[32]){
-			long a = 0;
-			for (int i = 0; i < 32; i++)
-				a = (a << 1) | bits[i];
-			return a == ans;
-		}
-
         //TODO: add negative numbers test
         
         //

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
 #include "../src/L01_Functions.cpp"
+#include "TestHelperMethods.h"
 
 using namespace System;
 using namespace System::Text;
@@ -92,33 +93,6 @@ namespace spec
 		{
 			Assert::AreEqual(___, numberOfPrimeFactors(45325420), L"numberOfPrimeFactors(a) failed", 1, 2);
 		};
-
-        // TODO: move to helper method file
-        // helper method
-        static bool isArrayEqual(int a[], int b[], int size){
-            for (int i = 0; i < size; i++){
-                if (a[i] != b[i])
-                    return false;
-            }
-            return true;
-        }
-
-        
-        //do not modify this function.
-        //returns true if strings a,b are same.
-        bool isEqualStrings(char a[], char b[]){
-            int i;
-            for (i = 0; a[i] != '\0' && b[i] != '\0'; i++) {
-                if (a[i] != b[i]) {
-                    return false;
-                }
-            }
-            if (a[i] == '\0' && b[i] == '\0') {
-                return true;
-            }
-            
-            return false;
-        }
         
 		[TestMethod, Timeout(1000)]
 		void Test_numberOfPrimeFactorsVector()
@@ -126,7 +100,7 @@ namespace spec
 			int a[] = { 907288, 978782, 381860, 721573, 56498, 182655 };
             int expectedA[] = ______;
 			primeFactorsVector(a, sizeof(a) / sizeof(a[0]));
-            Assert::AreEqual(true, isArrayEqual(vector, expectedVector, 6), L"primeFactorsVector() failed", 1, 2);
+            Assert::AreEqual(true, isArrayEqual(a, expectedA, 6), L"primeFactorsVector() failed", 1, 2);
 		};
 
 		[TestMethod] 

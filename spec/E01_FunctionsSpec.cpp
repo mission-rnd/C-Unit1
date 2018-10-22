@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
 #include "../src/E01_Functions.cpp"
+#include "TestHelperMethods.h"
 
 using namespace System;
 using namespace System::Text;
@@ -56,15 +57,6 @@ namespace spec
             Assert::AreEqual(6, sumOfMSDs(6756, 0), L"sumOfMSDs(6756, 0) failed", 1, 2);
             Assert::AreEqual(4, sumOfMSDs(2147483647, 2147483647), L"sumOfMSDs(2147483647, 2147483647) failed", 1, 2);
 		};
-
-        // helper method
-		static bool isArrayEqual(int a[], int b[], int size){
-			for (int i = 0; i < size; i++){
-				if (a[i] != b[i])
-					return false;
-			}
-			return true;
-		}
 
         //
         // sumOf100DigitNumbers test cases
