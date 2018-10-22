@@ -35,19 +35,19 @@ namespace spec
 		[TestMethod, Timeout(1000)]
 		void Test_andOfEachByte1()
 		{
-			Assert::AreEqual(0, andOfEachByte(10), L"andOfEachByte(0XFFFFFFFF) failed", 1, 2);
+			Assert::AreEqual(0, andOfEachByte(0xA), L"andOfEachByte(0xA) failed", 1, 2);
 		};
 
 		[TestMethod, Timeout(1000)]
 		void Test_andOfEachByte2()
 		{
-			Assert::AreEqual(32, andOfEachByte(1621290788), L"andOfEachByte(0XFFFFFFFF) failed", 1, 2);
+			Assert::AreEqual(0x20, andOfEachByte(0x60A2EF24), L"andOfEachByte(0x60A2EF24) failed", 1, 2);
 		};
 
 		[TestMethod, Timeout(1000)]
 		void Test_andOfEachByte3()
 		{
-			Assert::AreEqual(16, andOfEachByte(1467520980), L"andOfEachByte(0XFFFFFFFF) failed", 1, 2);
+			Assert::AreEqual(0x10, andOfEachByte(0x577897D4), L"andOfEachByte(0x577897D4) failed", 1, 2);
 		};
 
         [TestMethod, Timeout(1000)]
@@ -92,13 +92,16 @@ namespace spec
 			Assert::AreEqual(367824795, numberFromBits(bits), L"numberFromBits() failed", 1, 2);
 		}
 
+        // helper function
 		bool checkBits(int ans, int bits[32]){
 			long a = 0;
 			for (int i = 0; i < 32; i++)
-				a = a * 2 + bits[1];
+				a = (a << 1) | bits[i];
 			return a == ans;
 		}
 
+        //TODO: add negative numbers test
+        
 		[TestMethod, Timeout(1000)]
 		void Test_bitsFromNumber1()
 		{

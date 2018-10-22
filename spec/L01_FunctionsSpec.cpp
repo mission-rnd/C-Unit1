@@ -174,5 +174,6 @@ namespace spec
 			tenTimesMysteryVectorN(vector, sizeof(vector) / sizeof(vector[0]));
             int expectedVector[] = ______;
             Assert::AreEqual(true, isArrayEqual(vector, expectedVector, 5), L"nTimesMysteryVectorN() failed", 1, 2);
+        }
 	};
 }
