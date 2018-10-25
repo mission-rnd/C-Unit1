@@ -59,7 +59,7 @@ namespace spec
 			int a[3] = {5, 6, 7};
 			tenTimesVector3(a);
             int expectedA[] = ______;
-			Assert::AreEqual(true, areEqualArrays(expectedA, a), L"tenTimesVector3(a) failed", 1, 2);
+			Assert::AreEqual(true, areEqualArrays(expectedA, a, 3), L"tenTimesVector3(a) failed", 1, 2);
         };
 
         [TestMethod]
