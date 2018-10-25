@@ -99,7 +99,20 @@ namespace spec
 			int bits[32] = { 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1 };
 			Assert::AreEqual(367824795, numberFromBits(bits), L"numberFromBits() failed", 1, 2);
 		}
-        //TODO: add negative numbers test
+    
+        [TestMethod, Timeout(1000)]
+        void Test_numberFromBits5()
+        {
+            int bits[32] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+            Assert::AreEqual(0xFFFFFFFF, numberFromBits(bits), L"numberFromBits() failed", 1, 2);
+        }
+        
+        [TestMethod, Timeout(1000)]
+        void Test_numberFromBits6()
+        {
+            int bits[32] = { 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0 };
+            Assert::AreEqual(0xF0F0F0F0, numberFromBits(bits), L"numberFromBits() failed", 1, 2);
+        }
         
         //
         // bitsFromNumber tests
@@ -140,6 +153,33 @@ namespace spec
 			Assert::AreEqual(true, checkBits(n, bits), L"bitsFromNumber() failed", 1, 2);
 		}
 
+        [TestMethod, Timeout(1000)]
+        void Test_bitsFromNumber5()
+        {
+            int bits[32];
+            int n = -1;
+            bitsFromNumber(n, bits);
+            Assert::AreEqual(true, checkBits(n, bits), L"bitsFromNumber() failed", 1, 2);
+        }
+
+        [TestMethod, Timeout(1000)]
+        void Test_bitsFromNumber6()
+        {
+            int bits[32];
+            int n = 0x80000000;
+            bitsFromNumber(n, bits);
+            Assert::AreEqual(true, checkBits(n, bits), L"bitsFromNumber() failed", 1, 2);
+        }
+
+        [TestMethod, Timeout(1000)]
+        void Test_bitsFromNumber7()
+        {
+            int bits[32];
+            int n = 0xFFFFFFFF;
+            bitsFromNumber(n, bits);
+            Assert::AreEqual(true, checkBits(n, bits), L"bitsFromNumber() failed", 1, 2);
+        }
+
         //
         // numberOfOnesInBinary tests
         //
@@ -171,6 +211,34 @@ namespace spec
 			Assert::AreEqual(19, numberOfOnesInBinary(n), L"numberOfOnesInBinary(" + n + L") failed", 1, 2);
 		}
 
+        [TestMethod, Timeout(1000)]
+        void Test_numberOfOnesInBinary5()
+        {
+            int n = 0xFFFFFFFF;
+            Assert::AreEqual(32, numberOfOnesInBinary(n), L"numberOfOnesInBinary(" + n + L") failed", 1, 2);
+        }
+        
+        [TestMethod, Timeout(1000)]
+        void Test_numberOfOnesInBinary6()
+        {
+            int n = 0X0F00FF07;
+            Assert::AreEqual(15, numberOfOnesInBinary(n), L"numberOfOnesInBinary(" + n + L") failed", 1, 2);
+        }
+        
+        [TestMethod, Timeout(1000)]
+        void Test_numberOfOnesInBinary7()
+        {
+            int n = 0x88442211;
+            Assert::AreEqual(8, numberOfOnesInBinary(n), L"numberOfOnesInBinary(" + n + L") failed", 1, 2);
+        }
+        
+        [TestMethod, Timeout(1000)]
+        void Test_numberOfOnesInBinary8()
+        {
+            int n = 0xbadf00d;
+            Assert::AreEqual(16, numberOfOnesInBinary(n), L"numberOfOnesInBinary(" + n + L") failed", 1, 2);
+        }
+        
         //
         // isPalindromeInBase256 tests
         //
@@ -201,7 +269,33 @@ namespace spec
 			unsigned long int n = 1292513628;
 			Assert::AreEqual(0, isPalindromeInBase256(n), L"isPalindromeInBase256(" + n + L") failed", 1, 2);
 		}
-        // TODO: add tests with large numbers.
-        // TODO: express the numbers in Hex, it would be easy to write the answers.
+        
+        [TestMethod, Timeout(1000)]
+        void Test_isPalindromeInBase256Medium3()
+        {
+            unsigned long int n = 0xABCDDCBA;
+            Assert::AreEqual(0, isPalindromeInBase256(n), L"isPalindromeInBase256(" + n + L") failed", 1, 2);
+        }
+        
+        [TestMethod, Timeout(1000)]
+        void Test_isPalindromeInBase256Medium4()
+        {
+            unsigned long int n = 0xABCDCDAB;
+            Assert::AreEqual(1, isPalindromeInBase256(n), L"isPalindromeInBase256(" + n + L") failed", 1, 2);
+        }
+        
+        [TestMethod, Timeout(1000)]
+        void Test_isPalindromeInBase256Medium5()
+        {
+            unsigned long int n = 0xAABBAA;
+            Assert::AreEqual(1, isPalindromeInBase256(n), L"isPalindromeInBase256(" + n + L") failed", 1, 2);
+        }
+        
+        [TestMethod, Timeout(1000)]
+        void Test_isPalindromeInBase256Medium6()
+        {
+            unsigned long int n = 0xbadf00d;
+            Assert::AreEqual(0, isPalindromeInBase256(n), L"isPalindromeInBase256(" + n + L") failed", 1, 2);
+        }
     };
 }

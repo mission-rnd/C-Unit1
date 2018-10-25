@@ -26,8 +26,8 @@ bool areEqualStrings(char a[], char b[]){
 }
 
 bool checkBits(int ans, int bits[32]){
-	long a = 0;
+	int a = 0;
 	for (int i = 0; i < 32; i++)
-		a = a * 2 + bits[i];
+		a = (a << 1) | bits[i];
 	return a == ans;
 }
