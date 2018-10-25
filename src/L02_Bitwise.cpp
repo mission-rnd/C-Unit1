@@ -111,7 +111,7 @@ unsigned int leastSignificantByte(unsigned int n) {
 }
 
 unsigned int mostSignificantByte(unsigned int n) {
-    n = n >> 12;
+    n = n >> 24;
     return leastSignificantByte(n);
 }
 
@@ -121,7 +121,7 @@ unsigned int reverseOfNumberByByte(unsigned int n) {
     unsigned int byte1 = leastSignificantByte(n >> 8);
     unsigned int byte0 = leastSignificantByte(n);
     
-    unsigned int reverse = (byte0 << 12) | (byte1 << 8) | (byte2 << 4) | byte3;
+    unsigned int reverse = (byte0 << 24) | (byte1 << 16) | (byte2 << 8) | byte3;
     
     return reverse;
 }
