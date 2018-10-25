@@ -54,7 +54,7 @@ void tenTimesVector3(int vector[3]) {
 int numberOfPrimeFactors(int n) {
     int primeFactors = 0;
     int prime = 2;
-    while (n > 0) {
+    while (n > 1) {
         if (n % prime == 0) {
             primeFactors += 1;
         }
