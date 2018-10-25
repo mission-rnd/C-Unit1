@@ -50,7 +50,7 @@ namespace spec
         void Test_midPoint()
         {
             Assert::AreEqual(3, midPoint(2, 4), L"midPoint(2, 4) failed", 1, 2);
-			Assert::AreEqual(0x7FFFFFFE, midPoint(0x7FFFFFFD, 0x8FFFFFFF), L"midPoint(0x7FFFFFFD, 0x7FFFFFFF) failed", 1, 2);
+			Assert::AreEqual(0x7FFFFFFE, midPoint(0x7FFFFFFD, 0x7FFFFFFF), L"midPoint(0x7FFFFFFD, 0x7FFFFFFF) failed", 1, 2);
         };
 
         //
