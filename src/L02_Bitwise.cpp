@@ -30,8 +30,11 @@
 
 //
 // Note#1:
-// XOR is used in multiple applications in Computer Science
-// for some examples check this wiki page
+// XOR is used in multiple applications in Computer Science.
+// for e.g:
+// XOR is sometimes used as a simple mixing function in cryptography.
+//
+// for more examples check this wiki page
 // https://en.wikipedia.org/wiki/Exclusive_or#Bitwise_operation
 //
 int xorAB(int a, int b) {

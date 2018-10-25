@@ -6,10 +6,15 @@
 /*
 
  Note:
- Function is the basic building block of any programming language. Which
- provides a way to extend the minimum functionality provided by programming
- language.
+ Function is the basic building block of any programming language.
  
+ This idea of giving freedom for the programmer to add more functionality
+ to the language is perhaps the greatest idea in high-level languages.
+ 
+ "The basic langauge can be extended at will."
+ Watch this video: https://www.youtube.com/watch?v=UhC20aAl8IM&t=1m5s
+ till 5min 30sec.
+
  In this lesson we will understand how things work in the context of function
  - functions without arguments
  - functions with (local) argument variables
@@ -90,7 +95,7 @@ void numberToString(int n, char arr[12]) {
     
     int reverse = 0;
     for (; n > 0; n = n/10) {
-        reverse = reverse * 10 + n%10;
+        reverse = reverse*10 + n%10;
     }
     
     for (n = reverse; n > 0; index++) {
