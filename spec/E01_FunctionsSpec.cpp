@@ -1,3 +1,13 @@
+/*
+ 
+ Note:
+ *****important******
+ DO NOT modify anything in this file.
+ 
+ Implement the function stubs in E01_Functions.cpp to make
+ all the test cases in this file to pass.
+ */
+
 #include "stdafx.h"
 
 #include "../src/E01_Functions.cpp"

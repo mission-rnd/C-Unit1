@@ -3,13 +3,23 @@
 //  Unit1_exercise2_understanding_bitwise
 //
 
+/*
+ 
+ Note:
+ Implement the functions in this exercise file to make the tests
+ pass in E02_BitwiseSpec.cpp file.
+ 
+ Your primary goal is to implement all these functions by using
+ bitwise operators only.
+ 
+ */
 
 int andOfEachByte(int n) {
     return -9999;
 }
 
 //
-// Note:
+// Note1:
 // implement the function using bitwise operators only
 // should not use * and + operators.
 int numberFromBits(int bits[32]) {
@@ -17,7 +27,7 @@ int numberFromBits(int bits[32]) {
 }
 
 //
-// Note:
+// Note2:
 // implement the function using bitwise operators only
 // should not use % and / operators.
 void bitsFromNumber(int n, int bits[32]) {
@@ -25,8 +35,12 @@ void bitsFromNumber(int n, int bits[32]) {
 }
 
 //
-// number of one's in base 2 number system
-// n is a non-negative integer
+// Note3:
+// Refer this to understand how numbers are represented in binary format
+// https://www.youtube.com/watch?v=qrUjFtZZWf4
+// mainly how negative number are represented.
+//
+// implement this function by calling above bitsFromNumber function only.
 //
 int numberOfOnesInBinary(int n) {
     return -1;

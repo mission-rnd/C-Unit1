@@ -1,3 +1,13 @@
+/*
+ 
+ Note:
+ *****important******
+ DO NOT modify anything in this file.
+ 
+ Implement the function stubs in E02_Bitwise.cpp to make
+ all the test cases in this file to pass.
+ */
+
 #include "stdafx.h"
 
 #include "../src/E02_Bitwise.cpp"

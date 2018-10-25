@@ -6,12 +6,24 @@
 /*
 
  Note:
+ Function is the basic building block of any programming language. Which
+ provides a way to extend the minimum functionality provided by programming
+ language.
+ 
  In this lesson we will understand how things work in the context of function
  - functions without arguments
  - functions with (local) argument variables
  - return keyword in void functions
+ - changing the value in the array passed by the caller
  - changing loop index variable inside for loop
-
+ - calling another function inside the function.
+ 
+ You read the code in this file and understand the behaviour.
+ And fill the blanks in corresponding file: L01_FunctionsSpec.cpp under spec project.
+ 
+ *****important******
+ And DO NOT modify any functions in the lesson files in src project
+ except the comments in three_things_i_learnt() function.
 */
 
 int numberOfPeople() {

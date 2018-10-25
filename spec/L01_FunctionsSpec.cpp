@@ -1,3 +1,11 @@
+/*
+ 
+ Note:
+ You read the code in L01_Functions.cpp file and understand the behaviour.
+ And replace the blanks with correct expected output in this file.
+ 
+ */
+
 #include "stdafx.h"
 
 #include "../src/L01_Functions.cpp"

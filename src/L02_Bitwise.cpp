@@ -7,20 +7,25 @@
 // Bitwise operations
 //
 
-//
-// Note:
-// Bitwise operations are necessary particularly in lower-level
-// programming such as device drivers, low-level graphics,
-// communications protocol packet assembly, and decoding.
-//
-// Follow these guidelines
-// 00. Don't change code of any function in this file,
-//     expect write the comments in function: three_things_i_learnt().
-// 01. Understand everything in this wiki page:
-//     https://en.wikipedia.org/wiki/Bitwise_operations_in_C
-// 10. Your goal is to fill in the blanks in L02_BitwiseSpec.cpp file.
-// 11. For any doubts post on the forum.
-//
+/*
+ 
+ Note:
+ Bitwise operations are necessary particularly in lower-level
+ programming such as device drivers, low-level graphics,
+ communications protocol packet assembly, and decoding.
+ 
+ In this lesson we will understand how bitwise operators work.
+ - primarily how bitwise XOR, AND, OR, and SHIFT works.
+ - Understand everything in this wiki page:
+   https://en.wikipedia.org/wiki/Bitwise_operations_in_C
+ 
+ You read the code in this file and understand the behaviour.
+ And fill the blanks in corresponding file: L02_BitwiseSpec.cpp under spec project.
+ 
+ *****important******
+ And DO NOT modify any functions in the lesson files in src project
+ except the comments in three_things_i_learnt() function.
+ */
 
 
 //
@@ -108,6 +113,17 @@ unsigned int leastSignificantByte(unsigned int n) {
 unsigned int mostSignificantByte(unsigned int n) {
     n = n >> 12;
     return leastSignificantByte(n);
+}
+
+unsigned int reverseOfNumberByByte(unsigned int n) {
+    unsigned int byte3 = mostSignificantByte(n);
+    unsigned int byte2 = mostSignificantByte(n << 8);
+    unsigned int byte1 = leastSignificantByte(n >> 8);
+    unsigned int byte0 = leastSignificantByte(n);
+    
+    unsigned int reverse = (byte0 << 12) | (byte1 << 8) | (byte2 << 4) | byte3;
+    
+    return reverse;
 }
 
 static void three_things_i_learnt() {

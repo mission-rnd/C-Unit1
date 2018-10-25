@@ -1,3 +1,11 @@
+/*
+ 
+ Note:
+ You read the code in L02_Bitwise.cpp file and understand the behaviour.
+ And replace the blanks with correct expected output in this file.
+ 
+ */
+
 #include "stdafx.h"
 
 #include "../src/L02_Bitwise.cpp"
@@ -164,5 +172,24 @@ namespace spec
             Assert::AreEqual(___, leastSignificantByte(0), L"leastSignificantByte(0) failed", 1, 2);
             Assert::AreEqual(___, mostSignificantByte(0), L"mostSignificantByte(0) failed", 1, 2);
 		};
+        
+        [TestMethod]
+        void Test_reverseOfNumberByByte()
+        {
+            //
+            // Note:
+            // replace the blanks (___) with hexadecimal numbers.
+            //
+            Assert::AreEqual(___, reverseOfNumberByByte(0xAABBCCDD), L"reverseOfNumberByByte(0xAABBCCDD) failed", 1, 2);
+            Assert::AreEqual(___, reverseOfNumberByByte(0x12345678), L"reverseOfNumberByByte(0x12345678) failed", 1, 2);
+            
+            
+            Assert::AreEqual(___, reverseOfNumberByByte(0xFF), L"reverseOfNumberByByte(0xFF) failed", 1, 2);
+            Assert::AreEqual(___, reverseOfNumberByByte(0xFF00), L"reverseOfNumberByByte(0xFF00) failed", 1, 2);
+            Assert::AreEqual(___, reverseOfNumberByByte(0xAA0000), L"leastSignificantByte(0xAA0000) failed", 1, 2);
+            Assert::AreEqual(___, reverseOfNumberByByte(0xABCD0000), L"mostSignificantByte(0xABCD0000) failed", 1, 2);
+            
+            Assert::AreEqual(___, reverseOfNumberByByte(0), L"reverseOfNumberByByte(0) failed", 1, 2);
+        };
 	};
 }

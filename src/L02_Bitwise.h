@@ -21,5 +21,6 @@ int isEven(int n);
 
 unsigned int leastSignificantByte(unsigned int n);
 unsigned int mostSignificantByte(unsigned int n);
+unsigned int reverseOfNumberByByte(unsigned int n);
 
 #endif /* L02_Bitwise_h */
