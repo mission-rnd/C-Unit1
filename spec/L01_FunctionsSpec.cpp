@@ -138,8 +138,8 @@ namespace spec
         [TestMethod]
 		void Test_nTimesMysteryVectorN(){
 			int n = 5;
-			int vector[] = { 32433, 25563, 24313, 5674, 5 };
-			nTimesMysteryVectorN(n, vector, sizeof(vector) / sizeof(vector[0]));
+			int vector[] = { 32433, 1, 24313, 5674, 5 };
+			nTimesMysteryVectorN(n, vector, 5);
             int expectedVector[] = ______;
             Assert::AreEqual(true, areEqualArrays(vector, expectedVector, 5), L"nTimesMysteryVectorN() failed", 1, 2);
 		}
@@ -156,7 +156,7 @@ namespace spec
 		[TestMethod]
 		void Test_tenTimesMysteryVectorN(){
 			int vector[] = { 32433, 25563, 24313, 5674, 5 };
-			tenTimesMysteryVectorN(vector, sizeof(vector) / sizeof(vector[0]));
+			tenTimesMysteryVectorN(vector, 5);
             int expectedVector[] = ______;
             Assert::AreEqual(true, areEqualArrays(vector, expectedVector, 5), L"nTimesMysteryVectorN() failed", 1, 2);
         }
