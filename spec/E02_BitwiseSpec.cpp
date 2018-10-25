@@ -114,14 +114,14 @@ namespace spec
         void Test_numberFromBits5()
         {
             int bits[32] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-            Assert::AreEqual(0xFFFFFFFF, numberFromBits(bits), L"numberFromBits() failed", 1, 2);
+            Assert::AreEqual(-1, numberFromBits(bits), L"numberFromBits() failed", 1, 2);
         }
         
         [TestMethod, Timeout(1000)]
         void Test_numberFromBits6()
         {
             int bits[32] = { 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0 };
-            Assert::AreEqual(0xF0F0F0F0, numberFromBits(bits), L"numberFromBits() failed", 1, 2);
+            Assert::AreEqual(-252645136, numberFromBits(bits), L"numberFromBits() failed", 1, 2);
         }
         
         //
@@ -246,7 +246,7 @@ namespace spec
         void Test_numberOfOnesInBinary8()
         {
             int n = 0xbadf00d;
-            Assert::AreEqual(16, numberOfOnesInBinary(n), L"numberOfOnesInBinary(" + n + L") failed", 1, 2);
+            Assert::AreEqual(15, numberOfOnesInBinary(n), L"numberOfOnesInBinary(" + n + L") failed", 1, 2);
         }
         
         //

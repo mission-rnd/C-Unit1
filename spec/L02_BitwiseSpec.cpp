@@ -126,7 +126,6 @@ namespace spec
 			Assert::AreEqual(___, twoPowerN(3), L"twoPowerN(3) failed", 1, 2);
 			Assert::AreEqual(___, twoPowerN(6), L"twoPowerN(6) failed", 1, 2);
 			Assert::AreEqual(___, twoPowerN(0), L"twoPowerN(6) failed", 1, 2);
-			Assert::AreEqual(___, twoPowerN(31), L"twoPowerN(31) failed", 1, 2);
 		};
 
 		[TestMethod]
