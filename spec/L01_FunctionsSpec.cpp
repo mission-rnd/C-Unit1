@@ -82,34 +82,35 @@ namespace spec
             // does this call work? what happens?
             swap(2, 4);
         };
-
-        [TestMethod]
-		void Test_numberOfPrimeFactorsSimple()
-		{
-			Assert::AreEqual(___, numberOfPrimeFactors(10), L"numberOfPrimeFactors(a) failed",1,2);
-		};
-
-        [TestMethod]
-		void Test_numberOfPrimeFactorsMedium()
-		{
-			Assert::AreEqual(___, numberOfPrimeFactors(23532), L"numberOfPrimeFactors(a) failed", 1, 2);
-		};
-
-        [TestMethod]
-		void Test_numberOfPrimeFactorsLarge()
-		{
-			Assert::AreEqual(___, numberOfPrimeFactors(45325420), L"numberOfPrimeFactors(a) failed", 1, 2);
-		};
-        
-        [TestMethod]
-		void Test_numberOfPrimeFactorsVector()
-		{
-			int a[] = { 907288, 978782, 381860, 721573, 56498, 182655 };
+      
+        [TestMethod, Timeout(3000)]
+        void Test_primeFactorsVector0()
+        {
+            int a[] = { 24, 32, 5 };
             int expectedA[] = ______;
-			primeFactorsVector(a, sizeof(a) / sizeof(a[0]));
-            Assert::AreEqual(true, areEqualArrays(a, expectedA, 6), L"primeFactorsVector() failed", 1, 2);
+            primeFactorsVector(a, 3);
+            Assert::AreEqual(true, areEqualArrays(a, expectedA, 3), L"primeFactorsVector() failed", 1, 2);
+        };
+        
+        [TestMethod, Timeout(3000)]
+		void Test_primeFactorsVector2()
+		{
+			int a[] = { 2, 3, 5, 7, 11, 13, 47, 59 };
+            int expectedA[] = ______;
+			primeFactorsVector(a, 8);
+            Assert::AreEqual(true, areEqualArrays(a, expectedA, 8), L"primeFactorsVector() failed", 1, 2);
 		};
- 
+
+        
+        [TestMethod, Timeout(3000)]
+        void Test_primeFactorsVector3()
+        {
+            int a[] = { 2, 4, 8, 16, 32, 64, 128, 512 };
+            int expectedA[] = ______;
+            primeFactorsVector(a, 8);
+            Assert::AreEqual(true, areEqualArrays(a, expectedA, 8), L"primeFactorsVector() failed", 1, 2);
+        };
+        
         [TestMethod]
 		void Test_numberToStringZero()
 		{
