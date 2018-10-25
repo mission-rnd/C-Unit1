@@ -6,12 +6,24 @@
 /*
 
  Note:
+ Function is the basic building block of any programming language. Which
+ provides a way to extend the minimum functionality provided by programming
+ language.
+ 
  In this lesson we will understand how things work in the context of function
  - functions without arguments
  - functions with (local) argument variables
  - return keyword in void functions
+ - changing the value in the array passed by the caller
  - changing loop index variable inside for loop
-
+ - calling another function inside the function.
+ 
+ You read the code in this file and understand the behaviour.
+ And fill the blanks in corresponding file: L01_FunctionsSpec.cpp under spec project.
+ 
+ *****important******
+ And DO NOT modify any functions in the lesson files in src project
+ except the comments in three_things_i_learnt() function.
 */
 
 int numberOfPeople() {
@@ -22,17 +34,15 @@ double centimetersPerInch() {
 	return 2.4;
 }
 
+int tenTimes(int n) {
+    return 10*n;
+}
 
 void swap(int a, int b) {
     int temp = a;
     a = b;
     b = a;
     return;
-}
-
-
-int tenTimes(int n) {
-    return 10*n;
 }
 
 void tenTimesVector3(int vector[3]) {
@@ -44,7 +54,7 @@ void tenTimesVector3(int vector[3]) {
 int numberOfPrimeFactors(int n) {
     int primeFactors = 0;
     int prime = 2;
-    while (n > 0) {
+    while (n > 1) {
         if (n % prime == 0) {
             primeFactors += 1;
         }
@@ -106,8 +116,8 @@ void nTimesMysteryVectorN(int n, int vector[], int size) {
 int sigmaNWithMystery(int n) {
     int sum = 0;
     for (int i = 1; i <= n; i++) {
-        sum += i;
         i = i + 3;
+        sum += i;
     }
     return sum;
 }
