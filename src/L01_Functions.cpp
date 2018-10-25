@@ -46,7 +46,7 @@ int tenTimes(int n) {
 void swap(int a, int b) {
     int temp = a;
     a = b;
-    b = a;
+    b = temp;
     return;
 }
 

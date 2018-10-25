@@ -118,6 +118,10 @@ namespace spec
 		[TestMethod]
 		void Test_twoPowerN()
 		{
+            //
+            // Note:
+            // replace the blanks (___) with integer numbers.
+            //
 			Assert::AreEqual(___, twoPowerN(2), L"twoPowerN(2) failed", 1, 2);
 			Assert::AreEqual(___, twoPowerN(3), L"twoPowerN(3) failed", 1, 2);
 			Assert::AreEqual(___, twoPowerN(6), L"twoPowerN(6) failed", 1, 2);
