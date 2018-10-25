@@ -73,8 +73,8 @@ int xorNumbers(int numbers[], int size) {
 // Range of n is
 //  0 <= n <= 31
 //
-unsigned int turnOnNthBit(unsigned int bitFlags, int n) {
-	unsigned int res = bitFlags;
+int turnOnNthBit(int bitFlags, int n) {
+    int res = bitFlags;
 	res = res | (1 << n);
 	return res;
 }
@@ -109,22 +109,22 @@ int isEven(int n) {
 }
 
 
-unsigned int leastSignificantByte(unsigned int n) {
+int leastSignificantByte(int n) {
     return n & 0xFF;
 }
 
-unsigned int mostSignificantByte(unsigned int n) {
-    n = n >> 12;
+int mostSignificantByte(int n) {
+    n = n >> 24;
     return leastSignificantByte(n);
 }
 
-unsigned int reverseOfNumberByByte(unsigned int n) {
-    unsigned int byte3 = mostSignificantByte(n);
-    unsigned int byte2 = mostSignificantByte(n << 8);
-    unsigned int byte1 = leastSignificantByte(n >> 8);
-    unsigned int byte0 = leastSignificantByte(n);
+int reverseOfNumberByByte(int n) {
+    int byte3 = mostSignificantByte(n);
+    int byte2 = mostSignificantByte(n << 8);
+    int byte1 = leastSignificantByte(n >> 8);
+    int byte0 = leastSignificantByte(n);
     
-    unsigned int reverse = (byte0 << 12) | (byte1 << 8) | (byte2 << 4) | byte3;
+    int reverse = (byte0 << 24) | (byte1 << 16) | (byte2 << 8) | byte3;
     
     return reverse;
 }

@@ -86,23 +86,15 @@ namespace spec
             Assert::AreEqual(___, xorAAB(103,41), L"xorAAB(103,41) failed", 1, 2);
 		}
 
-		[TestMethod]
-		void Test_xorAAB()
-		{
-			Assert::AreEqual(___, xorAAB(113, 45), L"xorABA(113,45) failed", 1, 2);
-			Assert::AreEqual(___, xorAAB(-234, -19), L"xorABA(-234,-19) failed", 1, 2);
-			Assert::AreEqual(___, xorAAB(10, -4), L"xorABA(10,-4) failed", 1, 2);
-		}
-
         [TestMethod]
 		void Test_xorNumbers()
 		{
 			int arr3[] = { 2, 3, 2 };
 			int arrSame3[] = { 5, 5, 5 };
 			int arr5[] = { 3, 21, 21, 3, 9 };
-			Assert::AreEqual(___, xorNumbers(arr3, 3), L"xorNumbers({2, 3, 2}, 3) failed", 1, 2);
-			Assert::AreEqual(___, xorNumbers(arr5, 5), L"xorNumbers({3, 21, 21, 3, 9}, 5) failed", 1, 2);
-			Assert::AreEqual(___, xorNumbers(arrSame3, 3), L"xorNumbers({5, 5, 5}, 3) failed", 1, 2);
+			Assert::AreEqual(___, xorNumbers(arr3, 3), L"xorNumbers() failed", 1, 2);
+			Assert::AreEqual(___, xorNumbers(arr5, 5), L"xorNumbers() failed", 1, 2);
+			Assert::AreEqual(___, xorNumbers(arrSame3, 3), L"xorNumbers() failed", 1, 2);
 		};
         
         [TestMethod]
@@ -118,10 +110,9 @@ namespace spec
             Assert::AreEqual(___, turnOnNthBit(0x88, 3), L"turnOnNthBit(0x88, 3) failed", 1, 2);
             Assert::AreEqual(___, turnOnNthBit(0x88, 4), L"turnOnNthBit(0x88, 4) failed", 1, 2);
             
-            Assert::AreEqual(___, turnOnNthBit(0x7ABBCCDD, 31), L"turnOnNthBit(0x7ABBCCDD, 31) failed", 1, 2);
             Assert::AreEqual(___, turnOnNthBit(0x7ABBCCDD, 27), L"turnOnNthBit(0x7ABBCCDD, 27) failed", 1, 2);
             Assert::AreEqual(___, turnOnNthBit(0x7ABBCCDD, 24), L"turnOnNthBit(0x7ABBCCDD, 24) failed", 1, 2);
-            Assert::AreEqual(___, turnOnNthBit(0x7ABBCCDD, 14), L"turnOnNthBit(0x7ABBCCDD, 14) failed", 1, 2);
+            Assert::AreEqual(___, turnOnNthBit(0x7ABBCCDD, 13), L"turnOnNthBit(0x7ABBCCDD, 13) failed", 1, 2);
         }
 
 		[TestMethod]
@@ -159,15 +150,15 @@ namespace spec
             // Note:
             // replace the blanks (___) with hexadecimal numbers.
             //
-			Assert::AreEqual(___, leastSignificantByte(0xAABBCCDD), L"leastSignificantByte(0xAABBCCDD) failed", 1, 2);
-            Assert::AreEqual(___, mostSignificantByte(0xAABBCCDD), L"mostSignificantByte(0xAABBCCDD) failed", 1, 2);
+			Assert::AreEqual(___, leastSignificantByte(0x7ABBCCDD), L"leastSignificantByte(0x7ABBCCDD) failed", 1, 2);
+            Assert::AreEqual(___, mostSignificantByte(0x7ABBCCDD), L"mostSignificantByte(0x7ABBCCDD) failed", 1, 2);
          
             
-            Assert::AreEqual(___, leastSignificantByte(0xFFAADDCC), L"leastSignificantByte(0xFFAADDCC) failed", 1, 2);
-            Assert::AreEqual(___, mostSignificantByte(0xFFAADDCC), L"mostSignificantByte(0xFFAADDCC) failed", 1, 2);
+            Assert::AreEqual(___, leastSignificantByte(0x7FAADDCC), L"leastSignificantByte(0x7FAADDCC) failed", 1, 2);
+            Assert::AreEqual(___, mostSignificantByte(0x7FAADDCC), L"mostSignificantByte(0x7FAADDCC) failed", 1, 2);
 
-            Assert::AreEqual(___, leastSignificantByte(0xF0AADDC0), L"leastSignificantByte(0xF0AADDC0) failed", 1, 2);
-            Assert::AreEqual(___, mostSignificantByte(0xF0AADDC0), L"mostSignificantByte(0xF0AADDC0) failed", 1, 2);
+            Assert::AreEqual(___, leastSignificantByte(0x70AADDC0), L"leastSignificantByte(0x70AADDC0) failed", 1, 2);
+            Assert::AreEqual(___, mostSignificantByte(0x70AADDC0), L"mostSignificantByte(0x70AADDC0) failed", 1, 2);
             
             Assert::AreEqual(___, leastSignificantByte(0), L"leastSignificantByte(0) failed", 1, 2);
             Assert::AreEqual(___, mostSignificantByte(0), L"mostSignificantByte(0) failed", 1, 2);
@@ -180,14 +171,12 @@ namespace spec
             // Note:
             // replace the blanks (___) with hexadecimal numbers.
             //
-            Assert::AreEqual(___, reverseOfNumberByByte(0xAABBCCDD), L"reverseOfNumberByByte(0xAABBCCDD) failed", 1, 2);
+            Assert::AreEqual(___, reverseOfNumberByByte(0x7ABBCC7D), L"reverseOfNumberByByte(0x7ABBCC7D) failed", 1, 2);
             Assert::AreEqual(___, reverseOfNumberByByte(0x12345678), L"reverseOfNumberByByte(0x12345678) failed", 1, 2);
             
-            
-            Assert::AreEqual(___, reverseOfNumberByByte(0xFF), L"reverseOfNumberByByte(0xFF) failed", 1, 2);
             Assert::AreEqual(___, reverseOfNumberByByte(0xFF00), L"reverseOfNumberByByte(0xFF00) failed", 1, 2);
-            Assert::AreEqual(___, reverseOfNumberByByte(0xAA0000), L"leastSignificantByte(0xAA0000) failed", 1, 2);
-            Assert::AreEqual(___, reverseOfNumberByByte(0xABCD0000), L"mostSignificantByte(0xABCD0000) failed", 1, 2);
+            Assert::AreEqual(___, reverseOfNumberByByte(0xAA0000), L"reverseOfNumberByByte(0xAA0000) failed", 1, 2);
+            Assert::AreEqual(___, reverseOfNumberByByte(0xABCD0000), L"reverseOfNumberByByte(0xABCD0000) failed", 1, 2);
             
             Assert::AreEqual(___, reverseOfNumberByByte(0), L"reverseOfNumberByByte(0) failed", 1, 2);
         };

@@ -40,6 +40,10 @@ Actions:
 #include "E02_Bitwise.h"
 
 int main(){
+    // Note#1:
+    // For testing/debugging a function
+    // you can call a function with necessary parameters from here
+    // All the necessary header files are included
 	printf("Welcome to programming.\n");
 	return 0;
 }

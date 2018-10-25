@@ -14,13 +14,13 @@ int xorABA(int a, int b);
 int xorAAB(int a, int b);
 int xorNumbers(int numbers[], int size);
 
-unsigned int turnOnNthBit(unsigned int bitFlags, int n);
+int turnOnNthBit(int bitFlags, int n);
 int twoPowerN(int n);
 int isOdd(int n);
 int isEven(int n);
 
-unsigned int leastSignificantByte(unsigned int n);
-unsigned int mostSignificantByte(unsigned int n);
-unsigned int reverseOfNumberByByte(unsigned int n);
+int leastSignificantByte(int n);
+int mostSignificantByte(int n);
+int reverseOfNumberByByte(int n);
 
 #endif /* L02_Bitwise_h */
