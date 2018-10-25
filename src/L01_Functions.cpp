@@ -90,7 +90,7 @@ void numberToString(int n, char arr[12]) {
     
     int reverse = 0;
     for (; n > 0; n = n/10) {
-        reverse = reverse + n%10;
+        reverse = reverse * 10 + n%10;
     }
     
     for (n = reverse; n > 0; index++) {
