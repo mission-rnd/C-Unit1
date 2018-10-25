@@ -22,17 +22,15 @@ double centimetersPerInch() {
 	return 2.4;
 }
 
+int tenTimes(int n) {
+    return 10*n;
+}
 
 void swap(int a, int b) {
     int temp = a;
     a = b;
     b = a;
     return;
-}
-
-
-int tenTimes(int n) {
-    return 10*n;
 }
 
 void tenTimesVector3(int vector[3]) {
@@ -106,8 +104,8 @@ void nTimesMysteryVectorN(int n, int vector[], int size) {
 int sigmaNWithMystery(int n) {
     int sum = 0;
     for (int i = 1; i <= n; i++) {
-        sum += i;
         i = i + 3;
+        sum += i;
     }
     return sum;
 }

@@ -58,10 +58,9 @@ namespace spec
 		{
 			int a[3] = {5, 6, 7};
 			tenTimesVector3(a);
-			Assert::AreEqual(___, a[0], L"tenTimesVector3(a) failed", 1, 2);
-			Assert::AreEqual(___, a[1], L"tenTimesVector3(a) failed", 1, 2);
-			Assert::AreEqual(___, a[2], L"tenTimesVector3(a) failed", 1, 2);
-		};
+            int expectedA[] = ______;
+			Assert::AreEqual(true, areEqualArrays(expectedA, a), L"tenTimesVector3(a) failed", 1, 2);
+        };
 
         [TestMethod]
         void Test_swap()
@@ -76,74 +75,81 @@ namespace spec
             swap(2, 4);
         };
 
-		[TestMethod, Timeout(1000)]
+        [TestMethod]
 		void Test_numberOfPrimeFactorsSimple()
 		{
 			Assert::AreEqual(___, numberOfPrimeFactors(10), L"numberOfPrimeFactors(a) failed",1,2);
 		};
 
-		[TestMethod, Timeout(1000)]
+        [TestMethod]
 		void Test_numberOfPrimeFactorsMedium()
 		{
 			Assert::AreEqual(___, numberOfPrimeFactors(23532), L"numberOfPrimeFactors(a) failed", 1, 2);
 		};
 
-		[TestMethod, Timeout(1000)]
+        [TestMethod]
 		void Test_numberOfPrimeFactorsLarge()
 		{
 			Assert::AreEqual(___, numberOfPrimeFactors(45325420), L"numberOfPrimeFactors(a) failed", 1, 2);
 		};
         
-		[TestMethod, Timeout(1000)]
+        [TestMethod]
 		void Test_numberOfPrimeFactorsVector()
 		{
 			int a[] = { 907288, 978782, 381860, 721573, 56498, 182655 };
             int expectedA[] = ______;
 			primeFactorsVector(a, sizeof(a) / sizeof(a[0]));
-            Assert::AreEqual(true, isArrayEqual(a, expectedA, 6), L"primeFactorsVector() failed", 1, 2);
+            Assert::AreEqual(true, areEqualArrays(a, expectedA, 6), L"primeFactorsVector() failed", 1, 2);
 		};
-
-		[TestMethod] 
-		[Timeout(1000)]
+ 
+        [TestMethod]
 		void Test_numberToStringZero()
 		{
 			char ans[12];
 			numberToString(0,ans);
-			Assert::AreEqual(true,isEqualStrings(____, ans), L"numberToString() failed", 1, 2);
+			Assert::AreEqual(true,areEqualStrings(____, ans), L"numberToString() failed", 1, 2);
 		}
 
-		[TestMethod, Timeout(1000)]
+        [TestMethod]
 		void Test_numberToStringPositive()
 		{
 			char ans[12];
 			numberToString(53, ans);
-			Assert::AreEqual(true, isEqualStrings(____, ans), L"numberToString() failed", 1, 2);
+			Assert::AreEqual(true, areEqualStrings(____, ans), L"numberToString() failed", 1, 2);
 		}
 
-		[TestMethod] 
-		[Timeout(1000)]
+        [TestMethod]
 		void Test_numberToStringNegative()
 		{
 			char ans[12];
 			numberToString(-25, ans);
-			Assert::AreEqual(true, isEqualStrings(____, ans), L"numberToString() failed", 1, 2);
+			Assert::AreEqual(true, areEqualStrings(____, ans), L"numberToString() failed", 1, 2);
 		}
 
-		[TestMethod, Timeout(1000)]
+        [TestMethod]
 		void Test_nTimesMysteryVectorN(){
 			int n = 5;
 			int vector[] = { 32433, 25563, 24313, 5674, 5 };
 			nTimesMysteryVectorN(n, vector, sizeof(vector) / sizeof(vector[0]));
             int expectedVector[] = ______;
-            Assert::AreEqual(true, isArrayEqual(vector, expectedVector, 5), L"nTimesMysteryVectorN() failed", 1, 2);
+            Assert::AreEqual(true, areEqualArrays(vector, expectedVector, 5), L"nTimesMysteryVectorN() failed", 1, 2);
 		}
+        
+        [TestMethod]
+        void Test_sigmaNWithMystery()
+        {
+            Assert::AreEqual(___, sigmaNWithMystery(3), L"sigmaNWithMystery(3) failed", 1, 2);
+            Assert::AreEqual(___, sigmaNWithMystery(5), L"sigmaNWithMystery(5) failed", 1, 2);
+            Assert::AreEqual(___, sigmaNWithMystery(10), L"sigmaNWithMystery(10) failed", 1, 2);
+            Assert::AreEqual(___, sigmaNWithMystery(0xFF), L"sigmaNWithMystery(0xFF) failed", 1, 2);
+        };
 
-		[TestMethod, Timeout(1000)]
+		[TestMethod]
 		void Test_tenTimesMysteryVectorN(){
 			int vector[] = { 32433, 25563, 24313, 5674, 5 };
 			tenTimesMysteryVectorN(vector, sizeof(vector) / sizeof(vector[0]));
             int expectedVector[] = ______;
-            Assert::AreEqual(true, isArrayEqual(vector, expectedVector, 5), L"nTimesMysteryVectorN() failed", 1, 2);
+            Assert::AreEqual(true, areEqualArrays(vector, expectedVector, 5), L"nTimesMysteryVectorN() failed", 1, 2);
         }
 	};
 }

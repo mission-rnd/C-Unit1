@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 // helper method
-bool isArrayEqual(int a[], int b[], int size){
+bool areEqualArrays(int a[], int b[], int size){
 	for (int i = 0; i < size; i++){
 		if (a[i] != b[i])
 			return false;
@@ -11,7 +11,7 @@ bool isArrayEqual(int a[], int b[], int size){
 
 
 //returns true if strings a & b are same.
-bool isEqualStrings(char a[], char b[]){
+bool areEqualStrings(char a[], char b[]){
 	int i;
 	for (i = 0; a[i] != '\0' && b[i] != '\0'; i++) {
 		if (a[i] != b[i]) {
