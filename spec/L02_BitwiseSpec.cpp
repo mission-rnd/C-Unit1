@@ -163,6 +163,9 @@ namespace spec
             Assert::AreEqual(___, leastSignificantByte(0x70AADDC0), L"leastSignificantByte(0x70AADDC0) failed", 1, 2);
             Assert::AreEqual(___, mostSignificantByte(0x70AADDC0), L"mostSignificantByte(0x70AADDC0) failed", 1, 2);
             
+            Assert::AreEqual(___, leastSignificantByte(0xADDC0), L"leastSignificantByte(0xADDC0) failed", 1, 2);
+            Assert::AreEqual(___, mostSignificantByte(0x7AADDC0), L"mostSignificantByte(0x7AADDC0) failed", 1, 2);
+            
             Assert::AreEqual(___, leastSignificantByte(0), L"leastSignificantByte(0) failed", 1, 2);
             Assert::AreEqual(___, mostSignificantByte(0), L"mostSignificantByte(0) failed", 1, 2);
 		};
